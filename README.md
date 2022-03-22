@@ -1,6 +1,6 @@
 # everforest-neovim
 Configuration files for nvim
-![image](https://user-images.githubusercontent.com/72494265/159430800-ca02c93f-d89c-4bf6-ad8a-5c91ef45b0c0.png)
+![image](https://media.discordapp.net/attachments/786240300095897610/955731919734190100/unknown.png)
 
 # Install
 1. clone repository- ```git clone https://github.com/xXTgamerXx/everforest-neovim/ ~/.config/nvim```
