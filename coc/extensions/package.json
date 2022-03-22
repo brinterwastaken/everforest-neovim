@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "coc-clangd": ">=0.20.1",
-    "coc-discord-rpc": ">=5.0.5",
-    "coc-json": ">=1.4.1"
-  }
-}
