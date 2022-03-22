@@ -8,4 +8,4 @@ Configuration files for neovim
 1. clone repository- ```git clone https://github.com/xXTgamerXx/everforest-neovim/ ~/.config/nvim```
 2. move the coc config directory ```mv ~/.config/nvim/coc ~/.config/coc```
 3. open neovim and run `:PlugInstall`, once its done restart neovim.
-### Recommended- Install neovide
+### Recommended- Use with neovide (https://github.com/neovide/neovide)
