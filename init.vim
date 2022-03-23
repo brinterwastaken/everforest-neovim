@@ -122,5 +122,5 @@ function! ToggleTree()
     endif
 endfunction
 " Tree keybind
-nnoremap <C-t> :call ToggleTree()<CR>
-inoremap <C-t> <Esc>:call ToggleTree()<CR>i
+nnoremap <C-w> :call ToggleTree()<CR>
+inoremap <C-w> <Esc>:call ToggleTree()<CR>i
