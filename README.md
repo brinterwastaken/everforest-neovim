@@ -3,7 +3,7 @@ Configuration files for neovim
 # Contents-
 - [Screenshots](https://github.com/xXTgamerXx/everforest-neovim#screenshots)
 - [Install](https://github.com/xXTgamerXx/everforest-neovim#install)
-- [Recommended](https://github.com/xXTgamerXx/everforest-neovim#recommended)
+- [Recommended](https://github.com/xXTgamerXx/everforest-neovim#recommended--use-with-neovide-httpsgithubcomneovideneovide)
 ## Screenshots
 ### Dashboard
 ![image](https://user-images.githubusercontent.com/72494265/159658793-e879ae02-84a5-49d4-828c-b8b6a285decb.png)
