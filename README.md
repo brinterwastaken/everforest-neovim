@@ -2,7 +2,14 @@
 Configuration files for neovim
 
 ## Screenshot
-![image](https://media.discordapp.net/attachments/786240300095897610/955731919734190100/unknown.png)
+### Dashboard
+![image](https://user-images.githubusercontent.com/72494265/159658793-e879ae02-84a5-49d4-828c-b8b6a285decb.png)
+### Code editing
+![image](https://user-images.githubusercontent.com/72494265/159658986-a4855ebf-bd7c-4417-9a30-04f7b8d63f3c.png)
+### Terminal
+![image](https://user-images.githubusercontent.com/72494265/159659305-2a155ba3-dc36-4cbf-a673-137384fa1ab5.png)
+### Telescope
+
 
 ## Install
 1. Install a nerd font (https://nerdfonts.com)
@@ -10,4 +17,4 @@ Configuration files for neovim
 3. Open neovim. Run `:PlugInstall` and restart neovim once its done.
 4. Run `CocInstall coc-json coc-clangd coc-discord-rpc` to install coc plugins, and `:CocCommand rpc.enable` to enable discord rpc, 
 ### Recommended- Use with neovide (https://github.com/neovide/neovide)
-(For Neovide, use Iosevka Nerd Font or edit line 54 in init.vim to change the font)
+(For Neovide, use Iosevka Nerd Font or edit line 54 in init.vim to change the font, and use --multigrid)
