@@ -10,6 +10,13 @@ call plug#begin("~/.config/nvim/plugins")
   Plug 'vim-airline/vim-airline-themes'
   Plug 'ap/vim-css-color'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'glepnir/dashboard-nvim'
+  Plug 'ellisonleao/glow.nvim'
+  Plug 'numToStr/FTerm.nvim'
 call plug#end()
 
 " Vim configuration
@@ -27,10 +34,26 @@ let g:airline_right_sep = ' '
 let g:airline_left_sep = ' '
 let g:airline_symbols.linenr = '並 '
 let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
-let g:neovide_transparency = 0.75
 set omnifunc=javascriptcomplete#CompleteJS
 set omnifunc=htmlcomplete#CompleteTags
 set omnifunc=csscomplete#CompleteCSS
+let g:glow_border = "rounded"
+" Dashboard configuration
+let g:dashboard_default_executive ='telescope'
+let g:dashboard_custom_header =<< trim END
+
+███████╗██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██████╗ ███████╗███████╗████████╗
+██╔════╝██║   ██║██╔════╝██╔══██╗██╔════╝██╔═══██╗██╔══██╗██╔════╝██╔════╝╚══██╔══╝
+█████╗  ██║   ██║█████╗  ██████╔╝█████╗  ██║   ██║██████╔╝█████╗  ███████╗   ██║   
+██╔══╝  ╚██╗ ██╔╝██╔══╝  ██╔══██╗██╔══╝  ██║   ██║██╔══██╗██╔══╝  ╚════██║   ██║   
+███████╗ ╚████╔╝ ███████╗██║  ██║██║     ╚██████╔╝██║  ██║███████╗███████║   ██║   
+╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝   
+
+                                    NEOVIM
+END
+" Telescope keybinds
+nnoremap <C-f> :Telescope<CR>
+inoremap <C-f> <Esc>:Telescope<CR>i
 " tab spacing
 set tabstop=4
 set shiftwidth=4
@@ -39,9 +62,11 @@ set expandtab
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
+nnoremap <C-w>     :BufferClose<CR>
 inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
+inoremap <C-w>     <Esc>:BufferClose<CR>
 " system clipboard
 nmap <c-c> "+y
 vmap <c-c> "+y
@@ -52,7 +77,8 @@ cnoremap <c-v> <c-r>+
 inoremap <c-r> <c-v>
 " Neovide configuration
 set guifont=Iosevka\ Nerd\ Font:h16
-" Lua script
+" let g:neovide_transparency = 0.75
+" Lua
 lua <<EOF
 require("autosave").setup(
     {
@@ -65,4 +91,36 @@ require("autosave").setup(
 	debounce_delay = 135
    }
 )
+require'nvim-tree'.setup()
+require'FTerm'.setup(
+{
+    border = 'none',
+    blend = 10,
+    dimensions = {
+        height = 0.6,
+        width = 0.6
+    }
+}
+)
 EOF
+" Terminal keybinds
+nnoremap <C-`> :lua require('FTerm').open()<CR>
+inoremap <C-`> <Esc>:lua require('FTerm').open()<CR>i
+nnoremap <C-S-`> :lua require('FTerm').close()<CR>
+inoremap <C-S-`> <Esc>:lua require('FTerm').close()<CR>i
+" Tree Function
+let g:treeopen = 0
+function! ToggleTree()
+    if (g:treeopen == 0)
+        lua require'bufferline.state'.set_offset(31, 'FileTree')
+        NvimTreeOpen
+        let g:treeopen = 1 
+    else
+        lua require'bufferline.state'.set_offset(0)
+        NvimTreeClose
+        let g:treeopen = 0
+    endif
+endfunction
+" Tree keybind
+nnoremap <C-t> :call ToggleTree()<CR>
+inoremap <C-t> <Esc>:call ToggleTree()<CR>i
